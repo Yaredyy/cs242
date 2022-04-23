@@ -60,6 +60,7 @@ boolean isPrimitiveRoot(int n, int m) {
   fail = true;
   return !fail;
 }
+
 void dhmKeyExch(int p, int g, int as, int bs) {
   int a = 0, b = 0, sa = -1, sb = 1;
   a = expoMod(g, as, p);
