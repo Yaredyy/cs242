@@ -34,6 +34,7 @@ int expoMod(int val, int exp, int mod) {
   accum = ((accum + mod) % mod);
   return accum;
 }
+
 /**
  * Determine if the passed n is a primitive root of the passed prime.  According to a theorem by Fermat, if p is
  * a prime, then any number raised to the power (p-1) mod p is congruent to 1.  If n is a primitive root of p,
