@@ -107,41 +107,34 @@ void allEdges(Callback<Edge> cb) {
     }
   }
 }
-void dfs_visit(Vertex cur, boolean flag) {
+void dfs_visit(Vertex cur) {
   Edge edg;
   /* implement dfs_visit() code here */
   cur.mark = -1;
-  cur.st= ts;
-  ts++;
+  cur.st = ++ts;
   edg = cur.adj;
-  while(edg!=null){
-    if(edg.mark == 0){
-      edg.to.pr=cur;
-      if(flag==false) {
-        edg.mark = 1;
-      }
-      else{
-        edg.mark=2;
-      }
-      dfs_visit(edg.to,flag);
+  while (null != edg)
+  {
+    if (0 == edg.to.mark)
+    {
+      edg.to.pr = cur;
+      edg.mark = -1;
+      dfs_visit(edg.to);
     }
-    edg=edg.link;
+    edg = edg.link;
   }
-  cur.mark=1;
-  cur.ft = ts;
-  ts++;
+  cur.mark = 1;
+  cur.ft = ++ts;
 }
 void dfs(int s) {
   int ix;
   reset();
   ts = 0;
   /* implement dfs() code here */
-  boolean flag = false;
   for (Vertex v:verts){
     if(v.mark==0){
-      dfs_visit(v, flag);
+      dfs_visit(v);
     }
-    flag=true;
   }
 }
 boolean verifyVertices() {
