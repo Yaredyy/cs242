@@ -118,7 +118,7 @@ public class DFA
   }
   static class FSM0 extends FiniteStateMachine {
     /* define needed semantic rule variables here */
-    double v =0, f=0, r, s= 10;
+    double s, i, decV, intV, r;
 
     FSM0(PrintWriter pw) {
       super(pw);
@@ -140,24 +140,32 @@ public class DFA
       //pw.printf("rule:%d char:'%c'\n", rule, chr);
       /* define any number of cases you need with any rule numbers. ignore -1. */
       /* rule 0 is special - the above print can be used to trace if necessary */
-      double i = ((cc *(Math.pow(10,String.valueOf(chr).length())))+chr);
-      switch (rule) {
-        case 0 -> // initialize
-                /* semantic code initialization */
-                v = 10 * v + i;
-        case 1 -> {
-          /* rule 1 */
-          f += i / s;
-          s *= 10;
-        }
-        default -> s = 10;
+      switch(rule)
+      {
+        case 0:
+        // initializing the variables
+        s = 10;
+        i = 0;
+        decV = 0.0;
+        break;
+      case 1: // v = v * 10 + d; v is i
+        i = i * 10  + (chr - '0');
+        break;
+      case 2: // f = f * 10 + d
+        decV = decV + (chr - '0') / s;
+        s *= 10;
+        break;
+      case 3:
+        break;
+      default:
+        break;
       }
     }
     double getValue() {
       /* return the final semantic result of the recognition */
-      r=v+f;
-      v=0;
-      f=0;
+      r=i+decV;
+      i=0;
+      decV=0;
       return r;
     }
   }
