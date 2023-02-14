@@ -1,4 +1,3 @@
-package edu.pace.cs242.yehualashet;
 
 public class DFS
 {
@@ -95,9 +94,8 @@ void reset() {
   }
 }
 void allEdges(Callback<Edge> cb) {
-  int ix;
   Edge edg;
-  for (ix = 0; ix < verts.length; ++ix)
+  for (int ix = 0; ix < verts.length; ++ix)
   {
     edg = verts[ix].adj;
     while (null != edg)
@@ -127,7 +125,6 @@ void dfs_visit(Vertex cur) {
   cur.ft = ++ts;
 }
 void dfs(int s) {
-  int ix;
   reset();
   ts = 0;
   /* implement dfs() code here */
@@ -184,22 +181,22 @@ void assignWeek9() {
 }
 public static void main(String[] args)
 {
-  String[][] gr1 = {
-      {"A","B","2"}, {"A","C","3"}, {"B","D","1"}, {"C","D","1"}, {"E","A","2"}, {"E","F","5"}, {"E","G","4"},
-      {"E","H","2"}, {"F","G","3"}, {"F","B","2"}, {"G","D","3"}, {"G","H","5"}, {"H","C","1"}, {"I","E","3"},
-      {"I","H","1"}, {"J","F","1"}, {"J","G","2"},
-    };
-  String[][] gr2 = {   // Dijkstra nfrom slides
-      {"A", "B", "2"}, {"A", "G", "6"}, {"B", "C", "6"}, {"B", "E", "2"}, {"E", "G", "1"}, {"E", "F", "2"},
-      {"F", "C", "3"}, {"F", "H", "2"}, {"G", "H", "4"}, {"H", "D", "2"}, {"C", "D", "3"},
-  };
-  String[][] gr3 = {  /* directed from slides */
-      {"1", "2", "1"}, {"2", "2", "1"}, {"3", null, null}, {"2", "4", "1"}, {"4", "1", "1"}, {"4", "5", "1"},
-      {"5", "4", "1"}, {"6", "3", "1"}
-  };
-  String[][] gr4 = {  /* undirected from slides */
-      {"a", "b", "1"}, {"a", "c", "1"}, {"b", "c", "1"}, {"d", null, null}, {"e", "f", "1"}
-  };
+  // String[][] gr1 = {
+  //     {"A","B","2"}, {"A","C","3"}, {"B","D","1"}, {"C","D","1"}, {"E","A","2"}, {"E","F","5"}, {"E","G","4"},
+  //     {"E","H","2"}, {"F","G","3"}, {"F","B","2"}, {"G","D","3"}, {"G","H","5"}, {"H","C","1"}, {"I","E","3"},
+  //     {"I","H","1"}, {"J","F","1"}, {"J","G","2"},
+  //   };
+  // String[][] gr2 = {   // Dijkstra nfrom slides
+  //     {"A", "B", "2"}, {"A", "G", "6"}, {"B", "C", "6"}, {"B", "E", "2"}, {"E", "G", "1"}, {"E", "F", "2"},
+  //     {"F", "C", "3"}, {"F", "H", "2"}, {"G", "H", "4"}, {"H", "D", "2"}, {"C", "D", "3"},
+  // };
+  // String[][] gr3 = {  /* directed from slides */
+  //     {"1", "2", "1"}, {"2", "2", "1"}, {"3", null, null}, {"2", "4", "1"}, {"4", "1", "1"}, {"4", "5", "1"},
+  //     {"5", "4", "1"}, {"6", "3", "1"}
+  // };
+  // String[][] gr4 = {  /* undirected from slides */
+  //     {"a", "b", "1"}, {"a", "c", "1"}, {"b", "c", "1"}, {"d", null, null}, {"e", "f", "1"}
+  // };
   String[][] gr5 = {  /* week 9 */
       {"s", "z", "1"}, {"z", "y", "1"}, {"y", "x", "1"}, {"x", "z", "1"}, {"z", "w", "1"}, {"s", "w", "1"},
       {"w", "x", "1"}, {"t", "v", "1"}, {"t", "u", "1"}, {"u", "t", "1"}, {"u", "v", "1"}, {"v", "w", "1"},
